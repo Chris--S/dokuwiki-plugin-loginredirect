@@ -1,4 +1,4 @@
-base     pluginredirect
+base     loginredirect
 author   Christopher Smith
 email    chris@jalakai.co.uk
 date     2013-02-14
