@@ -1,0 +1,7 @@
+base     pluginredirect
+author   Christopher Smith
+email    chris@jalakai.co.uk
+date     2013-02-14
+name     Login Redirect Plugin
+desc     Redirect dokuwiki to an external login page, for use with external authentication methods
+url      http://dokuwiki.org/plugin:loginredirect
