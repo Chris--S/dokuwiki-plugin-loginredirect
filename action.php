@@ -27,18 +27,23 @@ class action_plugin_loginredirect extends DokuWiki_Action_Plugin {
     }
 
     function handle_loginredirect(&$event, $param) {
+      if ($event->data === 'login') {
+        $this->do_redirect($this->getConf('url'));
+      } else if ($event->data === 'logout') {
+        $this->do_redirect($this->getConf('logout_url'));
+      }
+    }
+
+    function do_redirect($url) {
       global $ID;
 
-      if ($event->data == 'login') {
-        $url = $this->getConf('url');
-        if (empty($url)) return;
+      if (empty($url)) return;
 
-        $return_key = $this->getConf('return_key');
-        $query_string = $return_key ? '?'.$return_key.'='.wl($ID) : '';
+      $return_key = $this->getConf('return_key');
+      $query_string = $return_key ? '?'.$return_key.'='.wl($ID) : '';
 
-        header("Location: $url{$query_string}");
-        exit();
-      }
+      header("Location: {$url}{$query_string}");
+      exit();
     }
 
 }
